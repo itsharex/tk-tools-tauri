@@ -2,6 +2,7 @@
 import Card from '../components/Card.vue'
 import { ref } from 'vue'
 import dayjs from 'dayjs'
+import 'dayjs/locale/zh-cn'
 import { ElMessage } from 'element-plus'
 
 const padZero = (num: number) => {
@@ -32,6 +33,8 @@ const result2 = ref<string>()
 const date3 = ref(getStandardTimeSeconds(initDate))
 const unit3 = ref<string>('year')
 const result3 = ref<string>()
+const date4 = ref(dayjs(initDate).format('YYYY-MM-DD'))
+const result4 = ref<string>()
 
 const diffBetween = () => {
   const startDate = dayjs(date1_1.value)
@@ -135,6 +138,11 @@ const analyzeDate = () => {
   }
 }
 analyzeDate()
+
+const calculateWeekDay = () => {
+  result4.value = ''
+  result4.value = dayjs(date4.value).locale('zh-cn').format("dddd")
+}
 </script>
 
 <template>
@@ -234,6 +242,19 @@ analyzeDate()
           style="width: 440px"
           class="result-input"
           @click="copy(result3?.toString())"
+        />
+      </div>
+    </Card>
+    <Card title="星期几计算器" class="dark:text-[#AEB9C0]">
+      <div class="flex items-center gap-2 flex-wrap">
+        <el-input v-model="date4" style="width: 200px" />
+        <el-button class="button-no-bg" @click="calculateWeekDay">计算</el-button>
+        <el-input
+          v-model="result4"
+          readonly
+          style="width: 100px"
+          class="result-input"
+          @click="copy(result4?.toString())"
         />
       </div>
     </Card>

@@ -97,7 +97,7 @@ onMounted(() => {
       <div class="text-[12px] mt-2">TK工具箱新版本&nbsp;{{ update.version }}&nbsp;现在已可用, 是否现在下载？</div>
       <div class="text-[12px] font-bold mt-4">更新信息:</div>
       <div
-          class="w-full flex-1 min-h-max text-[14px] bg-[#F9FFFF] dark:bg-[#262626] dark:border-[#171A15] mt-2 p-2 border rounded-md font-light flex flex-col items-start justify-start overflow-auto shadow-inner">
+          class="w-full flex-1 min-h-max text-[14px] bg-[#F9FFFF] dark:bg-[#262626] dark:border-[#171A15] mt-2 p-2 border rounded-md flex flex-col items-start justify-start overflow-auto shadow-inner">
         <div class="flex items-center justify-start gap-2" v-for="(item, index) in bodyArray" :key="index">
           <dot size="10"/>
           <div class="w-[calc(100vw-184px)] truncate">
@@ -125,7 +125,7 @@ onMounted(() => {
 
 <style scoped lang="scss">
 :deep(.el-button) {
-  @apply font-light h-full p-0 m-0;
+  @apply h-full p-0 m-0;
   box-shadow: inset 0 1px 2px #ffffff30,
   0 1px 2px #00000030,
   0 2px 4px #00000015;
